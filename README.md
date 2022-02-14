@@ -82,7 +82,7 @@ db('foo-table').where('id', id).delete() // resolves to the **number of records*
 
 ### Write Accounts API
 
-- Write CRUD for the `accounts` resource, using the middlewares and model functions above wherever appropriate:
+[X] - Write CRUD for the `accounts` resource, using the middlewares and model functions above wherever appropriate:
 
   - `[GET] /api/accounts` returns an array of accounts (or an empty array if there aren't any).
   - `[GET] /api/accounts/:id` returns an account by the given id.
@@ -101,7 +101,9 @@ db('foo-table').where('id', id).delete() // resolves to the **number of records*
 - Schedule time to review, refine, and assess your work.
 - Perform basic professional polishing including spell-checking and grammar-checking on your work.
 
-### Task 3: Stretch Problems
+
+
+<!-- ### Task 3: Stretch Problems
 
 The following exercises **require research**, the concepts needed to complete them have not been covered in class yet.
 
@@ -118,4 +120,4 @@ The following exercises **require research**, the concepts needed to complete th
     sortby: 'id',
     sortdir: 'desc'
   }
-  ```
+  ``` -->
