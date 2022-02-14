@@ -27,7 +27,7 @@ Visit [SQL Try Editor at W3Schools.com](https://www.w3schools.com/Sql/trysql.asp
 
 **Clicking the `Restore Database` button in the page will repopulate the database with the original data and discard all changes you have made**.
 
-### 2.2 Build a RESTful API for the Accounts Resource
+[X] ### 2.2 Build a RESTful API for the Accounts Resource
 
 We have provided some records inside the "accounts" table of the `budget.db3` database. You can restore the database (even after deleting the database) by running the following command:
 
