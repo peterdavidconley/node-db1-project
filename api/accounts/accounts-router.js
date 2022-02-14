@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
 // `[GET] /api/accounts/:id` returns an account by the given id.
 
 router.get('/:id', async (req, res, next) => {
-  
+
   try {
     const data = await Account.getById(req.params.id)
     res.json(data)
@@ -28,8 +28,15 @@ router.get('/:id', async (req, res, next) => {
 
 //`[POST] /api/accounts` returns the created account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db.
 
-router.post('/', (req, res, next) => {
-  // DO YOUR MAGIC
+router.post('/', async (req, res, next) => {
+
+  try {
+    const data = await Account.create(req.body)
+    res.json(data)
+  } catch (err) {
+    next(err)
+  }
+
 })
 
 // - `[PUT] /api/accounts/:id` returns the updated account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db.
@@ -44,8 +51,11 @@ router.delete('/:id', (req, res, next) => {
   // DO YOUR MAGIC
 })
 
-router.use((err, req, res, next) => { // eslint-disable-line
-  // DO YOUR MAGIC
+router.use((err, req, res, next) => { 
+  res.status(err.status || 500).json({
+    message: err.message,
+    stack: err.stack,
+  })
 })
 
 module.exports = router;
