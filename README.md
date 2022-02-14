@@ -14,7 +14,7 @@
 
 ### Task 2: Minimum Viable Product
 
-### 2.1 Write Basic SQL Queries
+[X] ### 2.1 Write Basic SQL Queries
 
 Visit [SQL Try Editor at W3Schools.com](https://www.w3schools.com/Sql/trysql.asp?filename=trysql_select_all) using Chrome and build the queries below. Once they work copy them to the `queries.sql` file at the root of the project.
 
