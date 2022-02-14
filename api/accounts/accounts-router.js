@@ -41,14 +41,28 @@ router.post('/', async (req, res, next) => {
 
 // - `[PUT] /api/accounts/:id` returns the updated account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db.
 
-router.put('/:id', (req, res, next) => {
-  // DO YOUR MAGIC
+router.put('/:id', async (req, res, next) => {
+  
+  try {
+    const data = await Account.updateById(req.params.id, req.body)
+    res.json(data)
+  } catch (err) {
+    next(err)
+  }
+
 });
 
 // - `[DELETE] /api/accounts/:id` returns the deleted account.
 
-router.delete('/:id', (req, res, next) => {
-  // DO YOUR MAGIC
+router.delete('/:id', async (req, res, next) => {
+
+  try {
+    const data = await Account.deleteById(req.params.id)
+    res.json(data)
+  } catch (err) {
+    next(err)
+  }
+
 })
 
 router.use((err, req, res, next) => { 
