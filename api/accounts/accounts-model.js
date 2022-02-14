@@ -5,7 +5,7 @@ const getAll = () => {
 }
 
 const getById = id => {
-  return db('accounts').where({ id: id })
+  return db('accounts').where('id', id).first()
 }
 
 async function create ({ name, budget}) {
