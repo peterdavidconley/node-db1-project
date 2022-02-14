@@ -5,11 +5,17 @@ const getAll = () => {
 }
 
 const getById = id => {
-  // DO YOUR MAGIC
+  return db('accounts').where({ id: id })
 }
 
-const create = account => {
-  // DO YOUR MAGIC
+const create = ({ name, budget}) => {
+  let result = await db('accounts').insert({ name, budget });
+  let id = result[0];
+  return {
+    name,
+    budget,
+    id: id,
+  };
 }
 
 const updateById = (id, account) => {
