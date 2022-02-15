@@ -36,11 +36,14 @@ router.post('/', md.checkAccountPayload, md.checkAccountNameUnique, async (req, 
 
 // - `[PUT] /api/accounts/:id` returns the updated account. Leading or trailing whitespace on budget `name` should be trimmed before saving to db.
 
-router.put('/:id', md.checkAccountId, md.checkAccountNameUnique, md.checkAccountPayload, async (req, res, next) => {
+router.put('/:id', 
+md.checkAccountId, 
+md.checkAccountPayload, 
+async (req, res, next) => {
   
   try {
-    const data = await Account.updateById(req.params.id, req.body)
-    res.json(data)
+    const updatedAccount = await Account.updateById(req.params.id, req.body)
+    res.status(200).json(updatedAccount)
   } catch (err) {
     next(err)
   }

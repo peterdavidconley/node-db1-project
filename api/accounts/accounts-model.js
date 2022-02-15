@@ -14,14 +14,9 @@ async function create (account) {
  
 }
 
-async function updateById (id, {name, budget}) {
-  await db('accounts').where({ id: id }).update({ name, budget });
-  return {
-    name,
-    budget,
-    id,
-  }
-
+async function updateById (id, account) {
+  await db('accounts').where('id', id).update(account)
+  return getById(id)
 }
 
 async function deleteById (id) {
