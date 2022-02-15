@@ -8,14 +8,10 @@ const getById = id => {
   return db('accounts').where('id', id).first()
 }
 
-async function create ({ name, budget}) {
-  let result = await db('accounts').insert({ name, budget });
-  let id = result[0];
-  return {
-    name,
-    budget,
-    id: id,
-  };
+async function create (account) {
+  const [id] =  await db('accounts').insert(account);
+  return getById(id)
+ 
 }
 
 async function updateById (id, {name, budget}) {
